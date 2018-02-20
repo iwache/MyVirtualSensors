@@ -7,8 +7,8 @@
     <ProjectGuid>{32DEF37A-FFC6-4BE1-86EC-5B1902EA9C5E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyEtherServer</RootNamespace>
-    <AssemblyName>MyEtherServer</AssemblyName>
+    <RootNamespace>MyEtherTcpServer</RootNamespace>
+    <AssemblyName>MyEtherTcpServer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

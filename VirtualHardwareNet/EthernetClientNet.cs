@@ -73,6 +73,9 @@ namespace VirtualHardwareNet
             _client.NoDelay = true;
             _treadActive = true;
 
+            // Keep this client socket allocated (after close() of any old socket connection).
+            Allocated = true;
+
             var clientThread = new Thread(new ParameterizedThreadStart(handleClient));
             clientThread.Start(_client);
             _socketConnected = true;

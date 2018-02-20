@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VirtualHardwareWrapper", "V
 		{E4510538-EA86-4014-97E0-F3CB9B50C349} = {E4510538-EA86-4014-97E0-F3CB9B50C349}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyEtherServer", "MyEtherServer\MyEtherServer.csproj", "{32DEF37A-FFC6-4BE1-86EC-5B1902EA9C5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyEtherTcpServer", "MyEtherTcpServer\MyEtherTcpServer.csproj", "{32DEF37A-FFC6-4BE1-86EC-5B1902EA9C5E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MySensorsGatewayEthernet", "MySensorsGatewayEthernet\MySensorsGatewayEthernet.vcxproj", "{209D44EB-EEE7-4134-BB24-94A734E4EC1E}"
 EndProject

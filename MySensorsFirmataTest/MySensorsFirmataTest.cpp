@@ -161,7 +161,7 @@ void loop()
 	//	if (abs(encoderValue) > 10)
 	//		myEncoder1.write(0);
 	}
-	wait(50);
+	wait(10);
 	return;
 
 	//encoderValue = myEncoder2.read() / 3;

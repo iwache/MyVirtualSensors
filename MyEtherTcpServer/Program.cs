@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace MyEtherServer
+namespace MyEtherTcpServer
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("My ETHER Server - ver. 1.0");
+            Console.WriteLine("My ETHER TCP Server - ver. 1.0");
 
             EtherServer server = new EtherServer(5445);
 
