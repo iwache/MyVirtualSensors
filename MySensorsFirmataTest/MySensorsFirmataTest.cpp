@@ -3,14 +3,11 @@
 
 // Enable and select radio type attached
 //#define MY_RADIO_NRF24
-#define MY_ETHER
-// ToDo:
-////#define MY_ETHER_TCP
+#define MY_ETHER_TCP
 
 #define MY_FIRMATA_CLIENT
 #define MY_FIRMATA_NETWORK_HOST "192.168.16.107" // my Arduino MKR1000 with WiFi Server Firmata
 
-// ToDo: add MySensors.h to ProjectIncludes.h
 #if defined(WIN32)
 #include "ProjectIncludes.h"
 #else

@@ -3,7 +3,7 @@
 
 // Enable and select radio type attached
 //#define MY_RADIO_NRF24
-#define MY_ETHER
+#define MY_ETHER_TCP
 
 // Enable gateway ethernet module type
 #define MY_GATEWAY_WIN32
