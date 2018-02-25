@@ -139,11 +139,13 @@
   <ItemGroup>
     <ClInclude Include="EthernetWrapper.h" />
     <ClInclude Include="ProcessSynchronizationWrapper.h" />
+    <ClInclude Include="TimingWrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EthernetWrapper.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="ProcessSynchronizationWrapper.cpp" />
+    <ClCompile Include="TimingWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VirtualHardwareNet\VirtualHardwareNet.csproj">

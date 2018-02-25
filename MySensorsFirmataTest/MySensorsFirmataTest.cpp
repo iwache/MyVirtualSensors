@@ -15,6 +15,7 @@
 #include <Encoder.h>
 #include <SSD1306Ascii.h>
 #include <SSD1306AsciiSpi.h>
+#include <LiquidMenu.h>
 #endif
 
 
@@ -78,7 +79,7 @@ const uint8_t* fontList[] = {
 uint8_t nFont = sizeof(fontList) / sizeof(uint8_t*);
 
 
-SSD1306AsciiSpi oled;
+//SSD1306AsciiSpi oled;
 
 #define LED 6 // 6 = LED_BUILTIN on MKR1000
 #define BUTTON 7 // Button connected to pin 7 and GND; we need a pullup input
@@ -87,9 +88,48 @@ SSD1306AsciiSpi oled;
 //Encoder myEncoder2(7, 8);
 Encoder myEncoder1(0, 1);
 
+LiquidCrystal_SSD1306 oled; // (OLED_CS, OLED_DC, OLED_RST);
+/*
+* Variable 'analogReading' is later configured to
+* be printed on the display. 'lastAnalogReading'
+* is used to check if the variable has changed.
+*/
+short analogReading = 0;
+
+// Here the line is set to column 1, row 0 and will print the passed
+// string and the passed variable.
+LiquidLine welcome_line1(1, 0, "LiquidMenu ", LIQUIDMENU_VERSION);
+// Here the column is 3, the row is 1 and the string is "Hello Menu".
+LiquidLine welcome_line2(3, 1, "Hello Menu");
+
+/*
+* LiquidScreen objects represent a single screen. A screen is made of
+* one or more LiquidLine objects. Up to four LiquidLine objects can
+* be inserted from here, but more can be added later in setup() using
+* welcome_screen.add_line(someLine_object);.
+*/
+// Here the LiquidLine objects are the two objects from above.
+LiquidScreen welcome_screen(welcome_line1, welcome_line2);
+
+// Here there is not only a text string but also a changing integer variable.
+LiquidLine analogReading_line(0, 0, "Analog: ", analogReading, " ms   ");
+LiquidScreen secondary_screen(analogReading_line);
+
+/*
+* The LiquidMenu object combines the LiquidScreen objects to form the
+* menu. Here it is only instantiated and the screens are added later
+* using menu.add_screen(someScreen_object);. This object is used to
+* control the menu, for example: menu.next_screen(), menu.switch_focus()...
+*/
+LiquidMenu menu(oled);
+
+
+
+
 void testOled()
 {
 	oled.begin(&Adafruit128x64, OLED_CS, OLED_DC, OLED_RST);
+
 	//oled.setScroll(true);
 	//oled.setFont(System5x7);
 	////oled.clear();
@@ -108,7 +148,7 @@ void testOled()
 		delay(1000);
 	}
 //	oled.setFont(System5x7);
-	oled.setScroll(true);
+//	oled.setScroll(true);
 //	oled.clear();
 	oled.println("Fonts done!");
 
@@ -117,13 +157,15 @@ void testOled()
 void setup()
 {
 	testOled();
-	boolean test = false;
 
-	oled.println("Setup begin.");
+//	oled.println("Setup begin.");
 
 	pinMode(LED, OUTPUT);          // sets the digital pin 13 as output
 	pinMode(BUTTON, INPUT_PULLUP);
-	oled.println("Setup done.");
+//	oled.println("Setup done.");
+
+	menu.add_screen(welcome_screen);
+	menu.add_screen(secondary_screen);
 }
 
 void presentation()
@@ -139,26 +181,37 @@ void loop()
 
 	static int line = 0;
 
+//	menu.update();
+
 //	oled.print(' ');
-	oled.print(line++);
-	oled.println(" - Hello world!");
+	//oled.print(line++);
+	//oled.println(" - Hello world!");
+
+	static bool lastValue = false;
 
 	bool value = !digitalRead(BUTTON);
 	digitalWrite(LED, value);
 
-	//	wait(50);
+	if (value && !lastValue)
+	{
+		menu.next_screen();
+//		menu.update();
+	}
+	lastValue = value;
 
-	int encoderValue;
-	encoderValue = myEncoder1.read() / 4;
+	int encoderValue = myEncoder1.read() / 4;
 	if (encoderValue != lastEncoderValue1) {
 		Serial.print("Encoder 1: ");
 		Serial.println(encoderValue);
 		lastEncoderValue1 = encoderValue;
 
+		analogReading = encoderValue;
+		menu.softUpdate(); // update();
+
 	//	if (abs(encoderValue) > 10)
 	//		myEncoder1.write(0);
 	}
-	wait(10);
+	wait(100);
 	return;
 
 	//encoderValue = myEncoder2.read() / 3;

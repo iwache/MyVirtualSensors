@@ -44,6 +44,7 @@
     <Compile Include="EthernetNet.cs" />
     <Compile Include="EthernetServerNet.cs" />
     <Compile Include="EthernetUdpNet.cs" />
+    <Compile Include="Timing.cs" />
     <Compile Include="ProcessSynchronization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

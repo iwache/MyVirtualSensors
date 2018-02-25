@@ -5,12 +5,15 @@
 //#define MY_RADIO_NRF24
 #define MY_ETHER_TCP
 
+#if defined(WIN32)
+#include "../../libraries/MySensors/MySensors.h"
+#else
 #include <MySensors.h>
+#endif
 
 void setup()
 {
-	boolean test = false;
-	
+
 }
 
 void presentation()

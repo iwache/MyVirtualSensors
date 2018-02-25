@@ -2,10 +2,17 @@
 #define MY_DEBUG
 
 // Enable and select radio type attached
-//#define MY_RADIO_NRF24
+#if defined(WIN32)
 #define MY_ETHER_TCP
+#else
+#define MY_RADIO_NRF24
+#endif
 
+#if defined(WIN32)
+#include "../../libraries/MySensors/MySensors.h"
+#else
 #include <MySensors.h>
+#endif
 
 void setup()
 {

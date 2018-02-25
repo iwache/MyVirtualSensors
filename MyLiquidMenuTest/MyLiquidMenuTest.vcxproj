@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{209D44EB-EEE7-4134-BB24-94A734E4EC1E}</ProjectGuid>
+    <ProjectGuid>{5E94AA1A-A7F9-4B00-8067-1E9DD9391ADE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>MySensorsGatewayEthernet</RootNamespace>
+    <RootNamespace>MyLiquidMenuTest</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -87,7 +87,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MySensorsGatewayEthernet.cpp" />
+    <ClCompile Include="MyLiquidMenuTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VirtualHardwareNet\VirtualHardwareNet.csproj">

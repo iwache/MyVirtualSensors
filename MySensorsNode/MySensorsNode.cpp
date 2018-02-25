@@ -54,15 +54,16 @@
 //#define MY_DEFAULT_RX_LED_PIN  8  // Receive led pin
 //#define MY_DEFAULT_TX_LED_PIN  9  // Transmit led pin
 
-#if defined(MY_USE_UDP)
-#include <EthernetUdp.h>
-#endif
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 #include <EthernetClient.h>
 #include <EthernetServer.h>
 
+#if defined(WIN32)
+#include "../../libraries/MySensors/MySensors.h"
+#else
 #include <MySensors.h>
+#endif
 
 // if you don't want to use DNS (and reduce your sketch size)
 // use the numeric IP instead of the name for the server:

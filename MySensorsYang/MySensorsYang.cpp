@@ -20,7 +20,11 @@
 //#define MY_RADIO_RFM95
 #define MY_ETHER_TCP
 
+#if defined(WIN32)
+#include "../../libraries/MySensors/MySensors.h"
+#else
 #include <MySensors.h>
+#endif
 
 #define LOG hwDebugPrint
 

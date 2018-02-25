@@ -47,7 +47,11 @@
 #include <EthernetUdp.h>
 #endif
 
+#if defined(WIN32)
+#include "../../libraries/MySensors/MySensors.h"
+#else
 #include <MySensors.h>
+#endif
 
 void setup()
 {
@@ -65,7 +69,6 @@ void loop()
 void receive(const MyMessage &message)
 {
 }
-
 
 // for Visual C++ we need following functions at least as empty stubs
 #if defined(WIN32)
