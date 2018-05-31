@@ -20,12 +20,15 @@
 
 #include "Button.h"
 
+#if defined(WIN32)
 #define A0 15
 #define A1 16
+#define A6 21
+#endif
 
 // pin definitions
 #define OLED_DC 2
-#define OLED_CS 3
+#define OLED_CS A6 //3
 #define OLED_RST 5
 
 #define LED 6 // 6 = LED_BUILTIN on MKR1000
